@@ -1,7 +1,7 @@
 package com.trilhadosaber.app
 
 import android.app.Activity
-import android.app.Application
+import android.app.Application as AndroidApplication
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver
@@ -19,7 +19,7 @@ import com.trilhadosaber.app.ads.AppOpenAdManager
  *    para apresentação adequada do App Open Ad no momento da abertura do app,
  *    evitando exibições indevidas durante trocas de telas internas.
  */
-class TrilhaSaberApplication : Application(), Application.ActivityLifecycleCallbacks, DefaultLifecycleObserver {
+class TrilhaSaberApplication : AndroidApplication(), AndroidApplication.ActivityLifecycleCallbacks, DefaultLifecycleObserver {
 
     companion object {
         private const val TAG = "TrilhaSaberApp"
@@ -27,7 +27,7 @@ class TrilhaSaberApplication : Application(), Application.ActivityLifecycleCallb
     }
 
     override fun onCreate() {
-        super<Application>.onCreate()
+        super<AndroidApplication>.onCreate()
         Log.d(TAG, "Inicializando TrilhaSaberApplication...")
 
         registerActivityLifecycleCallbacks(this)
