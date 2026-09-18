@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Permissões necessárias para o AdMob e funcionamento do app -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--
+      POLÍTICA PARA FAMÍLIAS DO GOOGLE PLAY:
+      Para aplicativos voltados para crianças e famílias, NUNCA declare a permissão
+      com.google.android.gms.permission.AD_ID, pois crianças não devem ter identificador
+      de publicidade transmitido.
+    -->
+
+    <application
+        android:name=".TrilhaSaberApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Trilha do Saber"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.App">
+
+        <!-- ================================================================== -->
+        <!-- GOOGLE ADMOB - APP ID PRINCIPAL                                   -->
+        <!-- ================================================================== -->
+        <!--
+          AdMob App ID oficial do usuário:
+          ca-app-pub-8922902046490534~6406875608
+        -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8922902046490534~6406875608" />
+        <!-- ================================================================== -->
+
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".JourneyActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".QuizActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".CustomStudyActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".CompetitionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".RankingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+    </application>
+</manifest>

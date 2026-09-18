@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical">
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/surfaceColor"
+        android:elevation="2dp"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/btn_back"
+            android:focusable="true"
+            android:padding="6dp"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/textColorPrimary" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/competition_title"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvPlayerTurnIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-bold"
+            android:text="1 a 5 jogadores"
+            android:textColor="@color/colorAccent"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- STEP 1: SETUP PLAYERS -->
+        <ScrollView
+            android:id="@+id/layoutSetupPlayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/competition_setup_title"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/competition_setup_subtitle"
+                    android:textColor="@color/textColorSecondary"
+                    android:textSize="14sp" />
+
+                <!-- Add Player Card -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.App.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:contentPadding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@string/label_player_name"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/etNewPlayerName"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/bg_option_default"
+                            android:hint="Ex: Lucas"
+                            android:inputType="textPersonName|textCapWords"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:textSize="15sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnAddPlayer"
+                            style="@style/Widget.App.Button.Secondary"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/btn_add_player"
+                            app:icon="@drawable/ic_star"
+                            app:iconGravity="textStart"
+                            app:iconTint="@color/colorPrimary" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Current Players List -->
+                <TextView
+                    android:id="@+id/tvPlayersCountHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="sans-serif-bold"
+                    android:text="Jogadores Adicionados (1/5):"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:id="@+id/containerPlayersList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnStartCompetition"
+                    style="@style/Widget.App.Button.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="@string/btn_start_competition" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- STEP 2: ACTIVE COMPETITION QUIZ -->
+        <LinearLayout
+            android:id="@+id/layoutActiveCompetition"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- Turn Banner -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardBackgroundColor="@color/colorPrimaryLight"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:contentPadding="14dp"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="1.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/ic_profile"
+                        app:tint="@color/colorPrimary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvTurnPlayerName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:text="Vez de: Aluno 1"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/tvCompetitionProgress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rodada 1 de 5"
+                            android:textColor="@color/textColorSecondary"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Question Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.App.Card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:contentPadding="18dp">
+
+                        <TextView
+                            android:id="@+id/tvCompStatement"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:lineSpacingMultiplier="1.2"
+                            android:text="Pergunta da competição..."
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="16sp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Options -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardCompOpt0"
+                        style="@style/Widget.App.Card.Clickable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        app:contentPadding="14dp">
+
+                        <TextView
+                            android:id="@+id/tvCompOpt0"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Opção A"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="15sp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardCompOpt1"
+                        style="@style/Widget.App.Card.Clickable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:contentPadding="14dp">
+
+                        <TextView
+                            android:id="@+id/tvCompOpt1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Opção B"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="15sp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardCompOpt2"
+                        style="@style/Widget.App.Card.Clickable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:contentPadding="14dp">
+
+                        <TextView
+                            android:id="@+id/tvCompOpt2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Opção C"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="15sp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardCompOpt3"
+                        style="@style/Widget.App.Card.Clickable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:contentPadding="14dp">
+
+                        <TextView
+                            android:id="@+id/tvCompOpt3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Opção D"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="15sp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Feedback -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardCompFeedback"
+                        style="@style/Widget.App.Card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:visibility="gone"
+                        app:contentPadding="14dp">
+
+                        <TextView
+                            android:id="@+id/tvCompFeedback"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-bold"
+                            android:text="Resposta Correta! +10 XP"
+                            android:textColor="@color/colorSuccess"
+                            android:textSize="15sp" />
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/surfaceColor"
+                android:elevation="4dp"
+                android:padding="16dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCompNextTurn"
+                    style="@style/Widget.App.Button.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:enabled="false"
+                    android:text="PRÓXIMO JOGADOR" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- STEP 3: RESULTS PODIUM -->
+        <ScrollView
+            android:id="@+id/layoutResultsPodium"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/colorAccentLight"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_trophy"
+                        app:tint="@color/colorAccent" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/competition_result_title"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="26sp" />
+
+                <TextView
+                    android:id="@+id/tvWinnerCongrats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-bold"
+                    android:text="Parabéns aos participantes!"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+                <!-- Results List Container -->
+                <LinearLayout
+                    android:id="@+id/containerResultsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBackHomeFromComp"
+                    style="@style/Widget.App.Button.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="VOLTAR AO INÍCIO" />
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</LinearLayout>

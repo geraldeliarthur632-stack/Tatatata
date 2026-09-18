@@ -1,0 +1,111 @@
+<resources>
+    <string name="app_name">Trilha do Saber</string>
+    <string name="slogan">Aprender pode ser divertido.</string>
+    <string name="btn_start">COMEÇAR</string>
+    <string name="btn_continue">CONTINUAR</string>
+    <string name="btn_back">Voltar</string>
+    <string name="btn_next">PRÓXIMA PERGUNTA</string>
+    <string name="btn_finish">CONCLUIR</string>
+    <string name="btn_edit_profile">Editar perfil</string>
+    <string name="btn_save">Salvar</string>
+    <string name="btn_cancel">Cancelar</string>
+
+    <!-- Registration -->
+    <string name="registration_title">Cadastro do Aluno</string>
+    <string name="registration_subtitle">Personalize sua experiência de aprendizado</string>
+    <string name="label_name">Nome:</string>
+    <string name="hint_name">Digite seu nome</string>
+    <string name="label_grade">Ano/Série:</string>
+    <string name="prompt_select_grade">Selecione seu ano escolar</string>
+
+    <!-- Dashboard -->
+    <string name="greeting_format">Olá, %1$s!</string>
+    <string name="label_xp">XP</string>
+    <string name="label_coins">Moedas</string>
+    <string name="label_level">Nível</string>
+    <string name="label_progress">Progresso</string>
+    <string name="level_format">Nível %1$d - %2$s</string>
+    <string name="next_level_format">%1$d / %2$d XP para o próximo nível</string>
+
+    <!-- Home Menu Buttons -->
+    <string name="menu_journey">Jornada</string>
+    <string name="menu_custom_study">Estudar Personalizado</string>
+    <string name="menu_competition">Competição</string>
+    <string name="menu_profile">Perfil</string>
+    <string name="menu_ranking">Ranking</string>
+
+    <!-- Journey -->
+    <string name="journey_title">Jornada do Conhecimento</string>
+    <string name="journey_subtitle">Escolha uma matéria para treinar seus conhecimentos:</string>
+    <string name="subject_math">Matemática</string>
+    <string name="subject_portuguese">Português</string>
+    <string name="subject_science">Ciências</string>
+    <string name="subject_history">História</string>
+    <string name="subject_geography">Geografia</string>
+    <string name="subject_english">Inglês</string>
+
+    <!-- Quiz -->
+    <string name="quiz_correct">Resposta correta!</string>
+    <string name="quiz_incorrect">Resposta incorreta.</string>
+    <string name="quiz_xp_gain">+10 XP</string>
+    <string name="quiz_question_counter">Pergunta %1$d de %2$d</string>
+    <string name="quiz_summary_title">Atividade Concluída!</string>
+    <string name="quiz_summary_score">Você acertou %1$d de %2$d perguntas</string>
+    <string name="quiz_bonus_xp">+20 XP Bônus de Conclusão</string>
+
+    <!-- Custom Study -->
+    <string name="study_title">Estudo Personalizado</string>
+    <string name="study_prompt">Quero estudar...</string>
+    <string name="study_hint">Ex: Frações, Concordância Verbal, Fotossíntese, Revolução Industrial...</string>
+    <string name="study_btn_search">Buscar Conteúdo</string>
+    <string name="tab_summary">Resumo</string>
+    <string name="tab_explanation">Explicação</string>
+    <string name="tab_examples">Exemplos</string>
+    <string name="tab_exercises">Exercícios</string>
+
+    <!-- Competition -->
+    <string name="comp_title">Competição Local</string>
+    <string name="comp_subtitle">Desafie seus amigos na mesma tela (1 a 5 jogadores)</string>
+    <string name="comp_add_player">Adicionar Jogador</string>
+    <string name="comp_start">INICIAR DESAFIO</string>
+    <string name="comp_player_turn">Vez de: %1$s</string>
+    <string name="comp_tiebreak_title">Pergunta de Desempate!</string>
+    <string name="comp_podium_title">🏆 Resultado Final</string>
+    <string name="comp_winner_bonus">+30 XP para o vencedor!</string>
+
+    <!-- Ranking -->
+    <string name="ranking_title">Ranking Local</string>
+    <string name="ranking_subtitle">Os maiores conquistadores de XP</string>
+
+    <!-- Levels -->
+    <string name="level_1">Aprendiz</string>
+    <string name="level_2">Explorador</string>
+    <string name="level_3">Pesquisador</string>
+    <string name="level_4">Estudioso</string>
+    <string name="level_5">Mestre do Saber</string>
+
+    <!-- Grade options array -->
+    <string-array name="grades_array">
+        <item>6º ano</item>
+        <item>7º ano</item>
+        <item>8º ano</item>
+        <item>9º ano</item>
+        <item>1º ano do Ensino Médio</item>
+        <item>2º ano do Ensino Médio</item>
+        <item>3º ano do Ensino Médio</item>
+    </string-array>
+
+    <!-- Additional Layout Strings -->
+    <string name="competition_title">Competição</string>
+    <string name="competition_setup_title">Preparar competição</string>
+    <string name="competition_setup_subtitle">Adicione os jogadores</string>
+    <string name="label_player_name">Nome do jogador</string>
+    <string name="btn_add_player">Adicionar jogador</string>
+    <string name="btn_start_competition">Começar competição</string>
+    <string name="competition_result_title">Resultado</string>
+    <string name="profile_title">Perfil</string>
+    <string name="profile_xp_total">XP total</string>
+    <string name="profile_coins_total">Moedas</string>
+    <string name="profile_completed">Atividades concluídas</string>
+    <string name="profile_correct_answers">Respostas corretas</string>
+</resources>

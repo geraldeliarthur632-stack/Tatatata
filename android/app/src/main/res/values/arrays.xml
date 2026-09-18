@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="school_grades">
+        <item>6º ano</item>
+        <item>7º ano</item>
+        <item>8º ano</item>
+        <item>9º ano</item>
+        <item>1º ano do Ensino Médio</item>
+        <item>2º ano do Ensino Médio</item>
+        <item>3º ano do Ensino Médio</item>
+    </string-array>
+</resources>

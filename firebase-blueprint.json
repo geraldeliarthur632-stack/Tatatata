@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Student profile, gamification stats, and progress in Trilha do Saber",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Student name"
+        },
+        "grade": {
+          "type": "string",
+          "description": "Academic grade level"
+        },
+        "avatar": {
+          "type": "string",
+          "description": "Avatar emoji or identifier"
+        },
+        "totalPoints": {
+          "type": "number",
+          "description": "Total accumulated XP points"
+        },
+        "completedChallenges": {
+          "type": "number",
+          "description": "Count of completed challenges"
+        },
+        "totalCorrectAnswers": {
+          "type": "number",
+          "description": "Count of correct answers"
+        },
+        "lastSyncedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last synchronization"
+        }
+      },
+      "required": ["name", "grade", "totalPoints"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Collection storing student profile and sync state"
+    }
+  }
+}

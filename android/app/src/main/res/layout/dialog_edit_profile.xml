@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/btn_edit_profile"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/label_name"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/dialogEtName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_option_default"
+        android:hint="@string/hint_name"
+        android:inputType="textPersonName|textCapWords"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/label_grade"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="14sp" />
+
+    <Spinner
+        android:id="@+id/dialogSpnGrade"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_option_default"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp" />
+
+</LinearLayout>
