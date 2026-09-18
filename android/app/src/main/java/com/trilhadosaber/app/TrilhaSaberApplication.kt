@@ -27,7 +27,7 @@ class TrilhaSaberApplication : Application(), Application.ActivityLifecycleCallb
     }
 
     override fun onCreate() {
-        super.onCreate()
+        super<Application>.onCreate()
         Log.d(TAG, "Inicializando TrilhaSaberApplication...")
 
         registerActivityLifecycleCallbacks(this)
